@@ -28,3 +28,9 @@ def featureExtractor(path='./AutSED_New_Name_selectedData', SR=44100):
     #print(feature_stack.shape)
     return feature_stack, np.array(label_stack)
 
+def onehotEncoder(label):
+    one_hot_label = np.zeros((len(label), np.max(label)+1), dtype=np.int8)
+    for i, j in zip(label, one_hot_label):
+        j[i] = 1
+    return one_hot_label
+
